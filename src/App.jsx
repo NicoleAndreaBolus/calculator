@@ -25,15 +25,27 @@ function App() {
   const [n1, setN1] = useState(null);
   const [n2, setN2] = useState(null);
   const [opr, setOpr] = useState(null);
+  const [isResult, setIsResult] = useState(false); 
 
   const clrHandler = () => {
     setScrnVal("0");
     setN1(null);
     setN2(null);
     setOpr(null);
+    setIsResult(false);
   };
 
   const numHandler = (val) => {
+    
+    if (isResult) {
+      setScrnVal(val.toString());
+      setN1(val.toString());
+      setN2(null);
+      setOpr(null);
+      setIsResult(false);
+      return;
+    }
+
     if (opr === null) {
       const updN1 = n1 === null ? val.toString() : n1 + val.toString();
       setN1(updN1);
@@ -50,6 +62,7 @@ function App() {
       eqlHandler();
     }
     setOpr(val);
+    setIsResult(false);
   };
 
   const eqlHandler = () => {
@@ -70,11 +83,13 @@ function App() {
       setN1(ans.toString());
       setN2(null);
       setOpr(null);
+      setIsResult(true);
     }
   };
 
   const nameHandler = () => {
     setScrnVal("Nicole Andrea Bolus");
+    setIsResult(true);
   };
 
   return (
