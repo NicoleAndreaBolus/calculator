@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   display: flex;
   justify-content: center;
@@ -19,8 +26,8 @@ h1 {
 }
 
 .calcWrap {
-  width: 90%;              /* take 90% width on small screens */
-  max-width: 500px;        /* keep narrower on desktop */
+  width: 90%;              
+  max-width: 500px;        
   margin: 0 auto;
   padding: 25px;
   border-radius: 24px;
